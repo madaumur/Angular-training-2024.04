@@ -12,5 +12,10 @@ import { HomeComponent } from "../views/home/home.component";
     imports: [RouterOutlet, HeaderComponent, SidebarComponent, HomeComponent]
 })
 export class AppComponent {
-  title = 'templateProject';
+  ask: any;
+  title: string = "Title frome AppComponent";
+
+  reactToChild(message: string): void {
+    console.log(message)
+  }
 }

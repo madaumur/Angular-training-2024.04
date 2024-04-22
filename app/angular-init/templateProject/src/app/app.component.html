@@ -4,11 +4,11 @@
     <!-- Main -->
     <div id="main">
       <div class="inner">
-        <app-header/>
+        <app-header [title]="title" />
         <app-home/>
       </div>
     </div>
 
     <!-- Sidebar -->
-   <app-sidebar/>
+  <app-sidebar (ask)="reactToChild($event)" />
   </div>

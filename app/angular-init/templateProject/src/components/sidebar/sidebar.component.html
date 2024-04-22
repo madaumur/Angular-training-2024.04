@@ -3,9 +3,7 @@
 
     <!-- Search -->
     <section id="search" class="alt">
-      <form method="post" action="#">
-        <input type="text" name="query" id="query" placeholder="Search" />
-      </form>
+      <app-search [childValue]="parentValue" />
     </section>
 
     <!-- Menu -->
@@ -49,7 +47,7 @@
         <h2>Ante interdum</h2>
       </header>
       <div class="mini-posts">
-        <app-mini-post />
+        <app-mini-post [post]=post1 />
         <article>
           <a href="#" class="image"><img src="assets/images/pic08.jpg" alt="" /></a>
           <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
@@ -60,7 +58,7 @@
         </article>
       </div>
       <ul class="actions">
-        <li><a href="#" class="button">More</a></li>
+        <li><button class="button" (click)="askForMore()">More</button></li>
       </ul>
     </section>
 
