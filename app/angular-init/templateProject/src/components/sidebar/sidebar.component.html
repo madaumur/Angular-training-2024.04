@@ -3,7 +3,12 @@
 
     <!-- Search -->
     <section id="search" class="alt">
-      <app-search [childValue]="parentValue" />
+      Syntax de la synchronisation ! Marche que si tout est bien nommé ( value | valueChange ) et changement de la valeur par l'event
+      <!-- <app-search [childValue]="parentValue" (childValueChange)="reactToChild($event)" /> -->
+      <!-- <app-search [childValue]="parentValue" (childValueChange)="parentValue = $event" /> -->
+      <app-search [(childValue)]="parentValue" />
+
+      {{'parent :' + parentValue}}
     </section>
 
     <!-- Menu -->

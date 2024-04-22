@@ -30,4 +30,8 @@ export class SidebarComponent {
     console.log("Click on MORE button.")
     this.ask.emit("Blop"); // Les données passées dans le "emit" sont récupérées avec "$event"
   }
+
+  reactToChild(value: string): void {
+    this.parentValue = value;
+  }
 }
