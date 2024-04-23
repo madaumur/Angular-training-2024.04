@@ -1,16 +1,37 @@
-<form action="">
+<form #form (submit)="onSubmit(form.checkValidity())">
+  <!-- Les submit de formulaire sont sur le form PAS sur le bouton -->
   <label for="email">
     Email
-    <input type="email" name="email" />
+    <input
+      #emailInput
+      type="email"
+      name="email"
+      required
+      [(ngModel)]="credential.login"
+    />
+    @if (!emailInput.checkValidity()) {
+      <span>Invalide email</span>
+    }
   </label>
 
   <label for="password">
     Password
-    <input type="password" name="password" />
+    <input
+      #pwdInput
+      type="password"
+      name="password"
+      required
+      minlength="5"
+      [(ngModel)]="credential.password"
+    />
+    @if (!pwdInput.checkValidity()) {
+      <span>Invalide password</span>
+    }
   </label>
 
   <input type="checkbox" id="remember" />
   <label for="remember">Remember Me</label>
   <br />
-  <button (click)="(onSubmit)">Submit</button>
+  <button [disabled]="!form.checkValidity()">Submit</button>
+  <!-- disabled unéléménet est juste informatif mais pas du tout bloquant -->
 </form>

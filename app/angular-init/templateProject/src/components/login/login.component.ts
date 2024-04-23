@@ -14,7 +14,7 @@ export class LoginComponent {
     password: '',
   };
 
-  onSubmit(): void {
-    console.log(' Infos: ' + JSON.stringify(this.credential));
+  onSubmit(isValid: boolean): void {
+    if (isValid) console.log(' Infos: ' + JSON.stringify(this.credential));
   }
 }
