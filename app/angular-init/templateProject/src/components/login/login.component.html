@@ -9,9 +9,9 @@
       required
       [(ngModel)]="credential.login"
     />
-    @if (!emailInput.checkValidity()) {
-      <span>Invalide email</span>
-    }
+    <app-error-message [displayed]="!emailInput.checkValidity()">
+      invalid_email
+    </app-error-message>
   </label>
 
   <label for="password">
@@ -24,9 +24,9 @@
       minlength="5"
       [(ngModel)]="credential.password"
     />
-    @if (!pwdInput.checkValidity()) {
-      <span>Invalide password</span>
-    }
+    <app-error-message [displayed]="!pwdInput.checkValidity()">
+      invalid_password
+    </app-error-message>
   </label>
 
   <input type="checkbox" id="remember" />

@@ -1,1 +1,34 @@
-<p>register works!</p>
+<form [formGroup]="form" (submit)="onSubmit()">
+  <label>
+    Username :
+    <input formControlName="username" type="text" />
+  </label>
+
+  <label>
+    Email :
+    <input formControlName="email" type="email" />
+  </label>
+
+  <label>
+    Password :
+    <input formControlName="password" type="password" />
+  </label>
+
+  <label>
+    Confirm Password
+    <input
+      [formControl]="confirmPassword"
+      [class.invalid]="isInvalid(confirmPassword)"
+      type="password"
+      required
+      minlength="5"
+    />
+    <app-error-message [displayed]="hasError(confirmPassword, 'required')">
+      password is required
+    </app-error-message>
+    <app-error-message [displayed]="hasError(confirmPassword, 'minlength')">
+      password need at least 6 char
+    </app-error-message>
+  </label>
+  <button>Enregistrer</button>
+</form>
