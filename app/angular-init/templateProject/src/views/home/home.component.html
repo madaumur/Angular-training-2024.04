@@ -84,7 +84,19 @@
   </header>
   <div class="posts">
     @for (article of data; track $index) {
-      <app-article [article]="article" />
+      @if (article.src) {
+        <article>
+          <a [href]="article.lien" class="image">
+            <img [src]="'assets/images/' + article.src" [alt]="article.alt" />
+          </a>
+          <h3>{{ article.titre }}</h3>
+          <p>{{ article.description }}</p>
+          <ul class="actions">
+            <li><a href="#" class="button">More</a></li>
+          </ul>
+        </article>
+      }
+      <!-- <app-article [article]="article" /> -->
     }
   </div>
 </section>

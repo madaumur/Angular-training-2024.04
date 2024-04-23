@@ -63,7 +63,7 @@
             @if (first) {
               <p>Premier</p>
             }
-            <app-mini-post [post]="miniPost" />
+            <app-mini-post [post]="miniPost" [first]="first" />
             <p>Source : {{ source }}</p>
           } @else if (miniPost.src === undefined) {
             <p>Article sans image</p>

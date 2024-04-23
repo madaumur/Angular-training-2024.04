@@ -1,14 +1,14 @@
-  <!-- Wrapper -->
-  <div id="wrapper">
-
-    <!-- Main -->
-    <div id="main">
-      <div class="inner">
-        <app-header [title]="title" />
-        <app-home/>
-      </div>
+<!-- Wrapper -->
+<div id="wrapper">
+  <!-- Main -->
+  <div id="main">
+    <div class="inner">
+      <app-header [title]="title" />
+      <app-login></app-login>
+      <app-home />
     </div>
-
-    <!-- Sidebar -->
-  <app-sidebar (ask)="reactToChild($event)" />
   </div>
+
+  <!-- Sidebar -->
+  <app-sidebar (ask)="reactToChild($event)" />
+</div>

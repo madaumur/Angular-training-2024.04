@@ -9,5 +9,5 @@ import { Article } from '../../models/article';
   styleUrl: './article.component.css',
 })
 export class ArticleComponent {
-  @Input() article!: Article;
+  @Input({ required: true }) article!: Article;
 }
