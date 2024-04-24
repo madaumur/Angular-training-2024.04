@@ -1,1 +1,61 @@
-<p>article-editor works!</p>
+<form [formGroup]="form" (submit)="onSubmit()">
+  <h2>Création d'article</h2>
+  <label>
+    Src :
+    <input
+      formControlName="src"
+      [class.invalid]="isInvalid('src')"
+      type="text"
+    />
+  </label>
+
+  <label>
+    Alt * :
+    <input
+      formControlName="alt"
+      [class.invalid]="isInvalid('alt')"
+      type="text"
+    />
+    <app-error-message [displayed]="hasError('alt', 'required')">
+      Le champ 'alt' est obligatoire.
+    </app-error-message>
+  </label>
+
+  <label>
+    Titre * :
+    <input
+      formControlName="titre"
+      [class.invalid]="isInvalid('titre')"
+      type="text"
+    />
+    <app-error-message [displayed]="hasError('titre', 'required')">
+      Le champ 'titre' est obligatoire.
+    </app-error-message>
+  </label>
+
+  <label>
+    Description * :
+    <textarea
+      formControlName="description"
+      [class.invalid]="isInvalid('description')"
+      rows="3"
+    ></textarea>
+    <app-error-message [displayed]="hasError('description', 'required')">
+      Le champ 'description' est obligatoire.
+    </app-error-message>
+  </label>
+
+  <label>
+    Lien * :
+    <input
+      formControlName="lien"
+      [class.invalid]="isInvalid('lien')"
+      type="text"
+    />
+    <app-error-message [displayed]="hasError('lien', 'required')">
+      Le champ 'lien' est obligatoire.
+    </app-error-message>
+  </label>
+
+  <button>Enregistrer</button>
+</form>
