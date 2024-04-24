@@ -1,17 +1,47 @@
 <form [formGroup]="form" (submit)="onSubmit()">
   <label>
     Username :
-    <input formControlName="username" type="text" />
+    <input
+      formControlName="username"
+      [class.invalid]="isInvalid('username')"
+      type="text"
+    />
+    <app-error-message [displayed]="hasError('username', 'required')">
+      username is required
+    </app-error-message>
+    <app-error-message [displayed]="hasError('username', 'maxlength')">
+      username need less than 15 char
+    </app-error-message>
   </label>
 
   <label>
     Email :
-    <input formControlName="email" type="email" />
+    <input
+      formControlName="email"
+      [class.invalid]="isInvalid('email')"
+      type="email"
+    />
+    <app-error-message [displayed]="hasError('email', 'required')">
+      email is required
+    </app-error-message>
+    <app-error-message [displayed]="hasError('email', 'email')">
+      email need to be valid
+    </app-error-message>
   </label>
 
   <label>
     Password :
-    <input formControlName="password" type="password" />
+    <input
+      formControlName="password"
+      [class.invalid]="isInvalid('password')"
+      type="password"
+    />
+    <app-error-message [displayed]="hasError('password', 'required')">
+      password is required
+    </app-error-message>
+    <app-error-message [displayed]="hasError('password', 'minlength')">
+      password need at least 6 char
+    </app-error-message>
   </label>
 
   <label>
@@ -30,5 +60,6 @@
       password need at least 6 char
     </app-error-message>
   </label>
+
   <button>Enregistrer</button>
 </form>

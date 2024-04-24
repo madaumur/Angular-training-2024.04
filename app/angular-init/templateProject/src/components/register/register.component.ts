@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {ErrorMessageComponent} from "../error-message/error-message.component";
+import {AbstractFormComponent} from '../../tools/abstract-form-component';
 
 @Component({
   selector: 'app-register',
@@ -9,25 +10,19 @@ import {ErrorMessageComponent} from "../error-message/error-message.component";
   styleUrl: './register.component.css',
   imports: [ReactiveFormsModule, ErrorMessageComponent]
 })
-export class RegisterComponent {
+export class RegisterComponent extends AbstractFormComponent {
+
   form: FormGroup = new FormGroup({
     id: new FormControl(0),
-    username: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
+    username: new FormControl('', {validators: [Validators.required, Validators.maxLength(15)]}),
+    email: new FormControl('', {validators: [Validators.required, Validators.email]}),
+    password: new FormControl('', {validators: [Validators.required, Validators.minLength(5)]}),
   });
 
   confirmPassword: FormControl = new FormControl('', {validators: [Validators.required, Validators.minLength(5)]});
 
-  onSubmit(): void {
-    if (this.form.valid) console.log('User:');
-  }
-
-  isInvalid(control: FormControl) {
-    return (control.touched || control.dirty) && control.invalid
-  }
-
-  hasError(control: FormControl, errorCode: string) {
-    return (control.touched || control.dirty) && control.hasError(errorCode)
+  override onSubmit$(): void {
+    this.confirmPassword.markAsTouched()
+    if (this.confirmPassword.valid) console.log(`User: ${this.form.value}`)
   }
 }
