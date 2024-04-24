@@ -4,10 +4,15 @@
   <!-- Problème de cette manière : deux subscirbtion à des obsrvables -->
   <!-- <input type="text" name="query" id="query" placeholder="Search" [ngModel]="childValue" (ngModelChange)="childValueChange.emit($event)" /> -->
 
-
   <!-- Méthode la plus opti à priori -->
-  <input type="text" name="query" id="query" placeholder="Search" [(ngModel)]="search" />
-  child : {{childValue}}
+  <input
+    type="text"
+    name="query"
+    id="query"
+    placeholder="Search"
+    [(ngModel)]="search"
+  />
+  child : {{ childValue }}
   <br />
-  Date : {{today | date:"shortTime"}}
+  Date : {{ today | date: "shortTime" }}
 </form>

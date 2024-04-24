@@ -1,21 +1,20 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {DatePipe} from '@angular/common';
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { DatePipe } from "@angular/common";
 
 @Component({
-  selector: 'app-search',
+  selector: "app-search",
   standalone: true,
   imports: [FormsModule, DatePipe], // permettra l'utilisation de ngModel
-  templateUrl: './search.component.html',
-  styleUrl: './search.component.css'
+  templateUrl: "./search.component.html",
+  styleUrl: "./search.component.css",
 })
 export class SearchComponent {
-  @Input({required: true}) childValue!: string;
+  @Input({ required: true }) childValue!: string;
   @Output() childValueChange: EventEmitter<string> = new EventEmitter();
 
-
   get search(): string {
-    return this.childValue
+    return this.childValue;
   }
 
   set search(value: string) {
