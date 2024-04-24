@@ -1,4 +1,5 @@
 <form [formGroup]="form" (submit)="onSubmit()">
+  <h2>Register</h2>
   <label>
     Username :
     <input
@@ -34,7 +35,7 @@
     <input
       formControlName="password"
       [class.invalid]="isInvalid('password')"
-      type="password"
+      [type]="pwdVisible ? 'text' : 'password'"
     />
     <app-error-message [displayed]="hasError('password', 'required')">
       password is required
@@ -43,13 +44,12 @@
       password need at least 6 char
     </app-error-message>
   </label>
-
   <label>
     Confirm Password
     <input
       [formControl]="confirmPassword"
       [class.invalid]="isInvalid(confirmPassword)"
-      type="password"
+      [type]="pwdVisible ? 'text' : 'password'"
       required
       minlength="5"
     />
@@ -59,7 +59,13 @@
     <app-error-message [displayed]="hasError(confirmPassword, 'minlength')">
       password need at least 6 char
     </app-error-message>
+    <app-error-message [displayed]="hasError(confirmPassword, 'mustmatch')">
+      password need to be the same
+    </app-error-message>
   </label>
+  <button type="button" (click)="pwdVisible = !pwdVisible">
+    {{ pwdVisible ? "Masquer MDP" : "Voir MDP" }}
+  </button>
 
   <button>Enregistrer</button>
 </form>

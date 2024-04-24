@@ -1,4 +1,4 @@
-import {AbstractControl, FormGroup} from "@angular/forms";
+import {AbstractControl, FormGroup, ValidationErrors, ValidatorFn} from "@angular/forms";
 
 export abstract class AbstractFormComponent {
   abstract form: FormGroup
@@ -27,6 +27,16 @@ export abstract class AbstractFormComponent {
   hasError(control: AbstractControl | string, errorCode: string): boolean {
     control = this.getControl(control);
     return this.hasInteraction(control) && control.hasError(errorCode)
+  }
+
+  mustMatch(matchingControl: AbstractControl): ValidatorFn { // ValidatorFn retourne une fonction
+    return (control: AbstractControl): ValidationErrors | null => { // control est celui sur lequel on applique le validateur
+      const error: ValidationErrors = {
+        // errorCode : value
+        mustmatch: "Ne match pas !"
+      }
+      return control.value !== matchingControl.value ? error : null
+    }
   }
 
   onSubmit(): void {

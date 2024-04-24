@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
 import {ErrorMessageComponent} from "../error-message/error-message.component";
 import {AbstractFormComponent} from '../../tools/abstract-form-component';
 
@@ -11,18 +11,21 @@ import {AbstractFormComponent} from '../../tools/abstract-form-component';
   imports: [ReactiveFormsModule, ErrorMessageComponent]
 })
 export class RegisterComponent extends AbstractFormComponent {
+  pwdVisible: boolean = false;
+
+  password: FormControl = new FormControl('', {validators: [Validators.required, Validators.minLength(5)]});
+  confirmPassword: FormControl = new FormControl('', {validators: [Validators.required, Validators.minLength(5), this.mustMatch(this.password)]});
 
   form: FormGroup = new FormGroup({
     id: new FormControl(0),
     username: new FormControl('', {validators: [Validators.required, Validators.maxLength(15)]}),
     email: new FormControl('', {validators: [Validators.required, Validators.email]}),
-    password: new FormControl('', {validators: [Validators.required, Validators.minLength(5)]}),
+    password: this.password,
   });
 
-  confirmPassword: FormControl = new FormControl('', {validators: [Validators.required, Validators.minLength(5)]});
 
   override onSubmit$(): void {
-    this.confirmPassword.markAsTouched()
-    if (this.confirmPassword.valid) console.log(`User: ${this.form.value}`)
+    this.confirmPassword.markAsTouched();
+    if (this.confirmPassword.valid) console.log(`User: ${this.form.value}`);
   }
 }
