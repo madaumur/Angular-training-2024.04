@@ -4,11 +4,12 @@ import { Component } from "@angular/core";
 import { Article } from "../../models/article";
 import { AsyncPipe } from "@angular/common";
 import { subscribeOnce } from "../../tools/observable-helper";
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: "app-home",
   standalone: true,
-  imports: [AsyncPipe],
+  imports: [AsyncPipe, RouterLink],
   templateUrl: "./home.component.html",
   styleUrl: "./home.component.css",
 })

@@ -1,5 +1,24 @@
 <form [formGroup]="form" (submit)="onSubmit()">
-  <h2>Mode édition : article</h2>
+  <h2>
+    {{
+      form.value.id
+        ? "Article " + form.value.id + " (edit)"
+        : "Article (création)"
+    }}
+  </h2>
+
+  <label>
+    Titre * :
+    <input
+      formControlName="titre"
+      [class.invalid]="isInvalid('titre')"
+      type="text"
+    />
+    <app-error-message [displayed]="hasError('titre', 'required')">
+      Le champ 'titre' est obligatoire.
+    </app-error-message>
+  </label>
+
   <label>
     Src :
     <input
@@ -18,18 +37,6 @@
     />
     <app-error-message [displayed]="hasError('alt', 'required')">
       Le champ 'alt' est obligatoire.
-    </app-error-message>
-  </label>
-
-  <label>
-    Titre * :
-    <input
-      formControlName="titre"
-      [class.invalid]="isInvalid('titre')"
-      type="text"
-    />
-    <app-error-message [displayed]="hasError('titre', 'required')">
-      Le champ 'titre' est obligatoire.
     </app-error-message>
   </label>
 
@@ -57,5 +64,5 @@
     </app-error-message>
   </label>
 
-  <button>Enregistrer</button>
+  <button>{{ form.value.id ? "Update" : "Save" }}</button>
 </form>

@@ -1,5 +1,6 @@
 import { Routes } from "@angular/router";
 import { HomeComponent } from "../views/home/home.component";
+import { articleResolver } from "../views/article-editor/article-editor.component";
 
 export const routes: Routes = [
   {
@@ -16,6 +17,7 @@ export const routes: Routes = [
       import("../views/article-editor/article-editor.component").then(
         (m) => m.ArticleEditorComponent
       ),
+    resolve: { article: articleResolver },
   },
   {
     path: "**",
