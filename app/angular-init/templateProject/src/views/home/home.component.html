@@ -38,16 +38,20 @@
           </a>
           <h3>{{ article.titre }}</h3>
           <p>{{ article.description }}</p>
-          <ul class="actions">
-            <li>
-              <!-- Si on utilise le routerlink ou href, on passe par un lien -->
-              <a routerLink="/editor/{{ article.id }}" class="button">
-                Modifier
-              </a>
-            </li>
-            <!-- Si on utilise une méthode onClick, ce sera un bouton, pas un lien ( c'est pour l'accessibilité )-->
-            <li><button (click)="deleteArticle(article.id)">Delete</button></li>
-          </ul>
+          @if (authService.isLogged) {
+            <ul class="actions">
+              <li>
+                <!-- Si on utilise le routerlink ou href, on passe par un lien -->
+                <a routerLink="/editor/{{ article.id }}" class="button">
+                  Modifier
+                </a>
+              </li>
+              <!-- Si on utilise une méthode onClick, ce sera un bouton, pas un lien ( c'est pour l'accessibilité )-->
+              <li>
+                <button (click)="deleteArticle(article.id)">Delete</button>
+              </li>
+            </ul>
+          }
         </article>
       }
       <!-- La bonne logique est de faire un composant mais pb de style car ajout d'une balise donc flemme -->

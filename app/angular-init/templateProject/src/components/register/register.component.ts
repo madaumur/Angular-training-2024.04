@@ -1,3 +1,4 @@
+import { AuthService } from "./../../services/auth.service";
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import {
@@ -8,6 +9,7 @@ import {
 } from "@angular/forms";
 import { ErrorMessageComponent } from "../error-message/error-message.component";
 import { AbstractFormComponent } from "../../tools/abstract-form-component";
+import { subscribeOnce } from "../../tools/observable-helper";
 
 @Component({
   selector: "app-register",
@@ -18,7 +20,10 @@ import { AbstractFormComponent } from "../../tools/abstract-form-component";
 })
 export class RegisterComponent extends AbstractFormComponent {
   //onmet une condition de visibilité surrouter pour automatiquement créer une variable router
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private authService: AuthService
+  ) {
     super();
   }
 
@@ -49,8 +54,9 @@ export class RegisterComponent extends AbstractFormComponent {
   override onSubmit$(): void {
     this.confirmPassword.markAsTouched();
     if (this.confirmPassword.valid) {
-      console.log(`USER CREATED : ${this.form.value}`);
-      this.router.navigate(["auth/login"]);
+      subscribeOnce(this.authService.register(this.form.value), () =>
+        this.router.navigate(["auth/login"])
+      );
     }
   }
 }

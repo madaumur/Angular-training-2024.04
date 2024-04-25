@@ -4,6 +4,7 @@ import { MiniPost } from "../../models/mini-post";
 import { SearchComponent } from "../search/search.component";
 import { TruncatePipe } from "../../pipes/truncate.pipe";
 import { RouterLink } from "@angular/router";
+import { AuthService } from "../../services/auth.service";
 
 @Component({
   selector: "app-sidebar",
@@ -46,6 +47,8 @@ export class SidebarComponent {
     },
   ];
 
+  constructor(protected authService: AuthService) {}
+
   askForMore(): void {
     console.log("Click on MORE button.");
     this.ask.emit("Blop"); // Les données passées dans le "emit" sont récupérées avec "$event"
@@ -53,5 +56,9 @@ export class SidebarComponent {
 
   reactToChild(value: string): void {
     this.parentValue = value;
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

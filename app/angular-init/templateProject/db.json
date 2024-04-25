@@ -1,5 +1,24 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "Maxime@1",
+      "password": "$2a$10$KmW.TDYYWQdI461IAyoQIO.8BH.ZSsC0ZCFtTmk7x1q4s8hxqakLu",
+      "id": 1,
+      "username": "Maxime"
+    },
+    {
+      "email": "maxime@1",
+      "password": "$2a$10$GElnUAhNJwMszyH1fqgH8ueMIpCOR.sj5K7MXwwgbn8LVkgtpcliW",
+      "id": 2,
+      "username": "maxime"
+    },
+    {
+      "email": "user@1",
+      "password": "$2a$10$dhUtaOeD5swqxvKZje2Qou2q.8jMXt7TtQRPw753dU0OkaLQ6NUKe",
+      "id": 3,
+      "username": "user"
+    }
+  ],
   "articles": [
     {
       "id": 1,
@@ -11,10 +30,10 @@
     },
     {
       "id": 2,
-      "titre": "Nulla amet dolore",
-      "description": "Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.",
       "src": "pic02.jpg",
-      "alt": "",
+      "alt": "pic02.jpg",
+      "titre": "Nulla amet dolore",
+      "description": "Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.\nAenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.",
       "lien": "#"
     },
     {
@@ -38,14 +57,6 @@
       "titre": "Nulla amet dolore",
       "description": "Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.",
       "src": "pic02.jpg",
-      "alt": "",
-      "lien": "#"
-    },
-    {
-      "id": 6,
-      "titre": "Tempus ullamcorper",
-      "description": "Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.",
-      "src": "pic03.jpg",
       "alt": "",
       "lien": "#"
     }

@@ -1,6 +1,8 @@
-import { Routes } from "@angular/router";
+import { Router, Routes } from "@angular/router";
+import { inject } from "@angular/core";
 import { HomeComponent } from "../views/home/home.component";
 import { articleResolver } from "../views/article-editor/article-editor.component";
+import { AuthService, authGuard } from "../services/auth.service";
 
 export const routes: Routes = [
   {
@@ -17,6 +19,7 @@ export const routes: Routes = [
       import("../views/article-editor/article-editor.component").then(
         (m) => m.ArticleEditorComponent
       ),
+    canActivate: [authGuard],
     resolve: { article: articleResolver },
   },
   {

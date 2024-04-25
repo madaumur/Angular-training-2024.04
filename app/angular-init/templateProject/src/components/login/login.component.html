@@ -8,7 +8,7 @@
       type="email"
       name="email"
       required
-      [(ngModel)]="credential.login"
+      [(ngModel)]="credentials.email"
     />
     <app-error-message [displayed]="!emailInput.checkValidity()">
       invalid_email
@@ -23,16 +23,21 @@
       name="password"
       required
       minlength="5"
-      [(ngModel)]="credential.password"
+      [(ngModel)]="credentials.password"
     />
     <app-error-message [displayed]="!pwdInput.checkValidity()">
       invalid_password
     </app-error-message>
   </label>
 
-  <input type="checkbox" id="remember" />
+  <input
+    [(ngModel)]="authService.useLocal"
+    type="checkbox"
+    id="remember"
+    name="remember"
+  />
   <label for="remember">Remember Me</label>
   <br />
   <button [disabled]="!form.checkValidity()">Connect</button>
-  <!-- disabled unéléménet est juste informatif mais pas du tout bloquant -->
+  <!-- disabled un élément est juste informatif mais pas du tout bloquant -->
 </form>

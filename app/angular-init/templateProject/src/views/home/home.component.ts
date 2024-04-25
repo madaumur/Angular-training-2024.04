@@ -5,6 +5,7 @@ import { Article } from "../../models/article";
 import { AsyncPipe } from "@angular/common";
 import { subscribeOnce } from "../../tools/observable-helper";
 import { RouterLink } from "@angular/router";
+import { AuthService } from "../../services/auth.service";
 
 @Component({
   selector: "app-home",
@@ -23,7 +24,10 @@ export class HomeComponent {
 
   data!: Observable<Article[]>;
 
-  constructor(private articleService: ArticleService) {
+  constructor(
+    private articleService: ArticleService,
+    protected authService: AuthService
+  ) {
     this.fetchAll();
   }
 
