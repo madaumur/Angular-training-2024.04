@@ -9,7 +9,7 @@ import { AbstractService } from "../tools/abstract-service";
   providedIn: "root",
 })
 export class ArticleService extends AbstractService<Article> {
-  readonly ENDPOINT: string = `${environment.API_URL}/articles`;
+  readonly ENDPOINT: string = `${environment.API_URL}/664/articles`;
 
   constructor(http: HttpClient) {
     super(http);

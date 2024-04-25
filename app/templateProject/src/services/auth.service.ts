@@ -1,9 +1,9 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpInterceptorFn } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
 import { Router } from "@angular/router";
 import { User } from "../models/user";
 import { environment } from "../environments/environment";
-import { BehaviorSubject, tap } from "rxjs";
+import { BehaviorSubject, catchError, tap, throwError } from "rxjs";
 
 @Injectable({
   providedIn: "root",
@@ -76,6 +76,29 @@ export interface AuthResponse {
 }
 
 export const authGuard = () => {
-  inject(AuthService).isLogged ||
-    inject(Router).createUrlTree(["/auth/login/"]);
+  inject(AuthService).isLogged || inject(Router).createUrlTree(["auth/login/"]);
+};
+
+export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
+  console.log("On passe par l'interceptor : " + req.url);
+  const authService = inject(AuthService);
+  const token = authService.token;
+
+  if (token && req.url.startsWith(environment.API_URL)) {
+    // remplace la requète existante par une requete modifiée
+    req = req.clone({
+      setHeaders: {
+        Authorization: `Bearer${token}`,
+      },
+    });
+
+    return next(req).pipe(
+      catchError((err) => {
+        if (err.status === 401) authService.logout();
+        return throwError(() => err);
+      })
+    );
+  }
+
+  return next(req);
 };

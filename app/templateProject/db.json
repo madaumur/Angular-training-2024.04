@@ -24,7 +24,7 @@
       "id": 1,
       "src": "pic03.jpg",
       "alt": "pic03.jpg",
-      "titre": "Interdum aenean (updatedbis)",
+      "titre": "Interdum aenean (updatedbis)test",
       "description": "Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.",
       "lien": "#"
     },
@@ -32,7 +32,7 @@
       "id": 2,
       "src": "pic02.jpg",
       "alt": "pic02.jpg",
-      "titre": "Nulla amet dolore",
+      "titre": "Nulla amet dolore (test)",
       "description": "Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.\nAenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.",
       "lien": "#"
     },
