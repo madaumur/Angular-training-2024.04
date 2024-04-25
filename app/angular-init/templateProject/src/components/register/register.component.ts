@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
 import {
   FormControl,
   FormGroup,
@@ -16,6 +17,11 @@ import { AbstractFormComponent } from "../../tools/abstract-form-component";
   imports: [ReactiveFormsModule, ErrorMessageComponent],
 })
 export class RegisterComponent extends AbstractFormComponent {
+  //onmet une condition de visibilité surrouter pour automatiquement créer une variable router
+  constructor(private router: Router) {
+    super();
+  }
+
   pwdVisible: boolean = false;
 
   password: FormControl = new FormControl("", {
@@ -42,6 +48,9 @@ export class RegisterComponent extends AbstractFormComponent {
 
   override onSubmit$(): void {
     this.confirmPassword.markAsTouched();
-    if (this.confirmPassword.valid) console.log(`User: ${this.form.value}`);
+    if (this.confirmPassword.valid) {
+      console.log(`USER CREATED : ${this.form.value}`);
+      this.router.navigate(["auth/login"]);
+    }
   }
 }
