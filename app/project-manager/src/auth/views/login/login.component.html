@@ -1,0 +1,29 @@
+<form [formGroup]="loginForm" (submit)="onSubmit()">
+  <!-- On met le submit du formulaire dans le formulaire, pas dans le bouton -->
+  <h2>Connexion</h2>
+
+  <!-- Email -->
+  <label>
+    Adresse email :
+    <input
+      formControlName="email"
+      type="email"
+      placeholder="Adresse email"
+      [class.invalid]="isInvalid('email')"
+    />
+  </label>
+
+  <!-- Password -->
+  <label>
+    Mot de passe :
+    <input
+      formControlName="password"
+      type="password"
+      placeholder="Mot de passe"
+      [class.invalid]="isInvalid('password')"
+    />
+  </label>
+
+  <!-- Bouton SUBMIT -->
+  <button type="submit">Se connecter</button>
+</form>

@@ -1,0 +1,51 @@
+<form [formGroup]="projectForm" (submit)="onSubmit()">
+  <h2>
+    {{
+      form.value.id
+        ? "Édition du projet : '" + form.value.title + "'"
+        : "Création d'un projet"
+    }}
+  </h2>
+
+  <!-- Titre -->
+  <label>
+    Titre :
+    <input
+      formControlName="title"
+      [class.invalid]="isInvalid('title')"
+      type="text"
+    />
+  </label>
+
+  <!-- Description -->
+  <label>
+    Description :
+    <textarea
+      formControlName="description"
+      [class.invalid]="isInvalid('description')"
+      rows="3"
+    ></textarea>
+  </label>
+
+  <!-- StartDate -->
+  <label>
+    Date de début :
+    <input
+      formControlName="startDate"
+      [class.invalid]="isInvalid('startDate')"
+      type="date"
+    />
+  </label>
+
+  <!-- EndDate -->
+  <label>
+    Date de fin :
+    <input
+      formControlName="endDate"
+      [class.invalid]="isInvalid('endDate')"
+      type="date"
+    />
+  </label>
+
+  <button>{{ form.value.id ? "Mettre à jour" : "Enregistrer" }}</button>
+</form>

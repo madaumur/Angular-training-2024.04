@@ -1,0 +1,10 @@
+<!-- Section -->
+<section>
+  <header class="major">
+    <h2>Liste des projets</h2>
+  </header>
+
+  @for (project of data | async; track $index) {
+  <app-project [project]="project" />
+  }
+</section>

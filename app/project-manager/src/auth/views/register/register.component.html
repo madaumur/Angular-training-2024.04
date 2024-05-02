@@ -1,0 +1,49 @@
+<form [formGroup]="registerForm" (submit)="onSubmit()">
+  <!-- On met le submit du formulaire dans le formulaire, pas dans le bouton -->
+  <h2>Création de compte</h2>
+
+  <!-- Pseudonyme -->
+  <label>
+    Pseudonyme :
+    <input
+      formControlName="username"
+      type="text"
+      placeholder="champ obligatoire"
+      [class.invalid]="isInvalid('username')"
+    />
+  </label>
+
+  <!-- Email -->
+  <label>
+    Adresse email :
+    <input
+      formControlName="email"
+      type="email"
+      placeholder="champ obligatoire"
+      [class.invalid]="isInvalid('email')"
+    />
+  </label>
+
+  <!-- Password -->
+  <label>
+    Mot de passe :
+    <input
+      formControlName="password"
+      [type]="isPasswordVisible ? 'text' : 'password'"
+      placeholder="champ obligatoire"
+      [class.invalid]="isInvalid('password')"
+    />
+  </label>
+
+  <!-- Bouton "showPassword" -->
+  <button
+    type="button"
+    (click)="isPasswordVisible = !isPasswordVisible"
+    style="margin-right: 10px"
+  >
+    {{ isPasswordVisible ? "Masquer le mot de passe" : "Voir le mot de passe" }}
+  </button>
+
+  <!-- Bouton SUBMIT -->
+  <button type="submit">S'enregistrer</button>
+</form>

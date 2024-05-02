@@ -1,64 +1,26 @@
 {
   "users": [
     {
-      "email": "Maxime@1",
-      "password": "$2a$10$KmW.TDYYWQdI461IAyoQIO.8BH.ZSsC0ZCFtTmk7x1q4s8hxqakLu",
-      "id": 1,
-      "username": "Maxime"
-    },
-    {
       "email": "maxime@1",
-      "password": "$2a$10$GElnUAhNJwMszyH1fqgH8ueMIpCOR.sj5K7MXwwgbn8LVkgtpcliW",
-      "id": 2,
+      "password": "$2a$10$h6e6crRHkJ4UgzftUC7Sze/2ZIxYJ/GDBN23utY5tG/Rhj..BxIy2",
+      "id": 1,
       "username": "maxime"
-    },
-    {
-      "email": "user@1",
-      "password": "$2a$10$dhUtaOeD5swqxvKZje2Qou2q.8jMXt7TtQRPw753dU0OkaLQ6NUKe",
-      "id": 3,
-      "username": "user"
     }
   ],
-  "articles": [
+  "projects": [
     {
       "id": 1,
-      "src": "pic03.jpg",
-      "alt": "pic03.jpg",
-      "titre": "Interdum aenean (updatedbis)test",
-      "description": "Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.",
-      "lien": "#"
+      "title": "Projet 1",
+      "description": "Ceci est la description du premier projet. Il n'a ni date de début, ni date de fin (pour l'instant).",
+      "startDate": "2024-04-26",
+      "endDate": "2024-04-29"
     },
     {
       "id": 2,
-      "src": "pic02.jpg",
-      "alt": "pic02.jpg",
-      "titre": "Nulla amet dolore (test)",
-      "description": "Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.\nAenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.",
-      "lien": "#"
-    },
-    {
-      "id": 3,
-      "titre": "Tempus ullamcorper",
-      "description": "Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.",
-      "src": "pic03.jpg",
-      "alt": "",
-      "lien": "#"
-    },
-    {
-      "id": 4,
-      "titre": "Interdum aenean",
-      "description": "Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.",
-      "src": "pic01.jpg",
-      "alt": "",
-      "lien": "#"
-    },
-    {
-      "id": 5,
-      "titre": "Nulla amet dolore",
-      "description": "Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.",
-      "src": "pic02.jpg",
-      "alt": "",
-      "lien": "#"
+      "title": "Projet 2 : Aenean ornare velit lacus",
+      "description": "Je suis le projet \"Aenean ornare velit lacus\". Je n'ai pas encore de date de début, ni de date de fin (mais ça viendra).",
+      "startDate": "",
+      "endDate": ""
     }
   ]
 }
